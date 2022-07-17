@@ -14,6 +14,7 @@ const FundWAlletModal = () => {
 
   return (
     <div>
+      {" "}
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -68,13 +69,11 @@ const FundWAlletModal = () => {
           </div>
         </Dialog>
       </Transition>
-
-      <button
-        className="px-6 py-3 bg-green-500 text-white font-bold rounded-lg"
-        onClick={openModal}
-      >
-        Fund Wallet
-      </button>
+      <div className="  relative  ">
+        <button type="button" onClick={openModal}>
+          Fund Wallet
+        </button>
+      </div>
     </div>
   );
 };

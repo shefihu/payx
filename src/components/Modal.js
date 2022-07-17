@@ -78,7 +78,11 @@ const Modal = () => {
           </div>
         </Dialog>
       </Transition>
-      <button type="button" onClick={openModal} className="rounded-md ">
+      <button
+        type="button"
+        onClick={openModal}
+        className="rounded-md relative "
+      >
         Logout
       </button>
     </div>
