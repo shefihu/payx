@@ -5,7 +5,7 @@ const DashboardHome = () => {
     <div>
       <div className="w-full h-screen bg-red-100 flex justify-center">
         <div>
-          <h1>Hello</h1>
+          <h1>Trust me you will soon start saving soon. You X fan</h1>
         </div>
       </div>
     </div>

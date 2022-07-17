@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Formik, useFormik } from "formik";
 import React, { useState } from "react";
+import Cookies from "js-cookie";
 import { Navigate, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -92,9 +93,9 @@ const Register = () => {
                         password,
                       }
                     );
-                    console.log(response);
+
                     if (response.status === 201) {
-                      navigate("/admin");
+                      navigate("/login");
                     }
                   } catch (errors) {
                     console.log(errors);
