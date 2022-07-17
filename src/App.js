@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Dashboard from "./pages/Dashboard";
+import Account from "./pages/Dashboard/Account";
 import DashboardHome from "./pages/DashboardHome";
 import FAQs from "./pages/FAQs";
 import Home from "./pages/Home";
@@ -16,10 +17,10 @@ function App() {
   return (
     <>
       <div className="App">
-        {!["/admin", "/employee", "/publisher"].includes(location.pathname) && (
-          <Navbar />
-        )}
-        {["/admin", "/employee", "/publisher"].includes(location.pathname) && (
+        {!["/admin", "/employee", "/account", "/publisher"].includes(
+          location.pathname
+        ) && <Navbar />}
+        {["/admin", "/account", "/publisher"].includes(location.pathname) && (
           <Dashboard />
         )}
         <Routes>
@@ -31,6 +32,7 @@ function App() {
           {/* <Route path="/admin" element={<Dashboard />} /> */}
 
           <Route path="/admin" element={<DashboardHome />} />
+          <Route path="/account" element={<Account />} />
         </Routes>
       </div>
     </>
