@@ -41,7 +41,7 @@ const Carousel = () => {
       <>
         <div
           href={box.href}
-          className="w-40 h-40 rounded-xl bg-green-50 shadow mt-20"
+          className="w-40 h-40 rounded-xl bg-green-50 shadow mt-20 fixed"
         >
           <a
             className=" flex flex-col justify-between px-2 py-2 w-full text-black h-full  "
@@ -55,7 +55,7 @@ const Carousel = () => {
     );
   });
   return (
-    <div>
+    <div className="">
       <AliceCarousel
         mouseTracking
         infinite

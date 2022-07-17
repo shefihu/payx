@@ -275,6 +275,16 @@ const DashboardHome = () => {
               </div>
             </div>
           </div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <Carousel />
         </div>
       </div>
