@@ -10,6 +10,7 @@ import Account from "./pages/Dashboard/Account";
 import DashboardHome from "./pages/DashboardHome";
 import FAQs from "./pages/FAQs";
 import Home from "./pages/Home";
+import Verification from "./pages/Verification";
 
 function App() {
   const location = useLocation();
@@ -17,12 +18,16 @@ function App() {
   return (
     <>
       <div className="App">
-        {!["/admin", "/employee", "/account", "/publisher"].includes(
+        {![
+          "/admin",
+          "/employee",
+          "/account",
+          "/verification",
+          "/publisher",
+        ].includes(location.pathname) && <Navbar />}
+        {["/admin", "/account", "/verification", "/publisher"].includes(
           location.pathname
-        ) && <Navbar />}
-        {["/admin", "/account", "/publisher"].includes(location.pathname) && (
-          <Dashboard />
-        )}
+        ) && <Dashboard />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -33,6 +38,7 @@ function App() {
 
           <Route path="/admin" element={<DashboardHome />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/verification" element={<Verification />} />
         </Routes>
       </div>
     </>
