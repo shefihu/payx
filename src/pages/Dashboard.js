@@ -357,7 +357,7 @@ const Dashboard = () => {
           </ul>
         </div>
       </div>
-      <div className="w-full lg:hidden flex flex-col items-end fixed justify-end h-full ">
+      <div className="w-full lg:hidden flex flex-col items-end absolute justify-end h-full ">
         <div className="w-full bg-zinc-900 flex items-center justify-center h-20">
           <ul className=" w-full bg-zinc-900 pl-4 flex justify-between">
             {SmallMenu.map((menu) => {
