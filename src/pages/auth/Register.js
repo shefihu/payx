@@ -31,7 +31,7 @@ const Register = () => {
                     </p>
                     <a
                       href="#_"
-                      class="inline-block px-8 py-5 text-xl font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease"
+                      class="inline-block px-8 py-5 text-xl font-medium text-center text-white transition duration-200 bg-green-600 rounded-lg hover:bg-green-700 ease"
                     >
                       Get Started Today
                     </a>
@@ -94,7 +94,7 @@ const Register = () => {
                     );
                     console.log(response);
                     if (response.status === 201) {
-                      navigate("/");
+                      navigate("/admin");
                     }
                   } catch (errors) {
                     console.log(errors);

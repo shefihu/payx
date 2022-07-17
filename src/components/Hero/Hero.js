@@ -1,20 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import card from "../../assets/images/card.png";
 import arrow from "../../assets/icons/arrow.png";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 const Hero = () => {
   const navigate = useNavigate();
+  const [conditionIsMet, setConditionIsMet] = useState(false);
+  const notifVariants = {
+    conditionA: {
+      opacity: [0, 1],
+      // height: ["40px", "90px"],
+    },
+
+    conditionB: {
+      opacity: [0, 1],
+      // height: ["40px", "200px"],
+    },
+  };
   return (
     <div>
+      {/* <button
+        className="w-60 h-20"
+        onClick={() => setConditionIsMet(!conditionIsMet)}
+      >
+        yeah
+      </button> */}
       <div className="bg-zinc-900 w-full lg:flex hidden  h-[40rem]">
         <div className="flex justify-between mx-auto container items-center w-full h-full ">
           <div className="w-1/2  h-[29rem] flex flex-col justify-between">
-            <div className="flex flex-col w-full justify-between  h-36">
+            <motion.div
+              animate={conditionIsMet ? "conditionA" : "conditionB"}
+              variants={notifVariants}
+              className="flex flex-col w-full justify-between  h-36"
+            >
               <h1 className="text-6xl text-white font-bold">
                 Securing your <span className="text-green-500">future</span>
               </h1>
               <h1 className="text-6xl text-white font-bold">with one click</h1>
-            </div>
+            </motion.div>
             <div className="w-full text-white h-24 flex flex-col justify-between ">
               <p>
                 Saving, Spending and Transfers are part of our lives we only
@@ -22,17 +45,22 @@ const Hero = () => {
               <p> help you make it better. With PayX we run decentralized</p>
               <p>transactions accross the globe.</p>
             </div>
-            <button
+            <motion.button
               onClick={() => {
                 navigate("/register");
               }}
-              className="bg-green-500 w-72 text-white font-bold rounded py-4"
+              whileHover={{ scale: 1.1 }}
+              className="bg-green-500 w-72 text-white font-bold rounded py-4 "
             >
               Sign Up for free
-            </button>
+            </motion.button>
           </div>
-          <div className="mb-20">
-            <img src={card} alt="" />
+          <div className="mb-20 ">
+            <img
+              src={card}
+              alt=""
+              className="transform -rotate-6 transition hover:scale-105 duration-700 ease-in-out hover:rotate-6"
+            />
             <div className="absolute  top-[36rem] left-[34rem]">
               {" "}
               <img src={arrow} alt="" className="w-[30rem]" />

@@ -1,13 +1,21 @@
 import axios from "axios";
 import { Formik } from "formik";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { UNSAFE_NavigationContext, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import Cookies from "js-cookie";
 import "react-toastify/dist/ReactToastify.css";
+import { BarLoader } from "react-spinners";
 const Login = () => {
   const [loading, setLoading] = useState(false);
+  const [loaderColor, setLoaderColor] = useState("#00FF00");
   const navigate = useNavigate();
+  const override = {
+    width: "100%",
+    margin: "0 auto",
+    backgroundColor: "white",
+    BarLoader: "green",
+  };
   return (
     <div>
       <ToastContainer />
@@ -72,8 +80,7 @@ const Login = () => {
                   Cookies.set("user", JSON.stringify(payload), {
                     expires: 1 / 24,
                   });
-
-                  navigate("/");
+                  navigate("/admin");
                 } catch (errors) {
                   console.log(errors);
                   toast.error(errors.response.data.message);
@@ -95,6 +102,23 @@ const Login = () => {
                   onSubmit={handleSubmit}
                   class="w-full mt-16 md:mt-0 md:w-2/5"
                 >
+                  {loading && (
+                    <>
+                      {" "}
+                      {/* <>
+                            <button class="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-green-600 rounded-lg hover:bg-green-700 ease">
+                              <div class="w-8 h-8 border-4 border-dashed mx-auto rounded-full animate-spin dark:border-violet-400"></div>
+                            </button>
+                          </> */}
+                      <div className="w-full">
+                        <BarLoader
+                          color={loaderColor}
+                          speedMultiplier={2.5}
+                          cssOverride={override}
+                        />
+                      </div>
+                    </>
+                  )}
                   <div class="relative z-10 h-auto p-8 py-10 overflow-hidden bg-white border-b-2 border-gray-300 rounded-lg shadow-2xl px-7">
                     <h3 class="mb-6 text-2xl font-medium text-center">
                       Sign in to your Account
@@ -118,22 +142,14 @@ const Login = () => {
                       placeholder="Password"
                     />
                     <div class="block">
-                      {!loading ? (
-                        <>
-                          <button
-                            type="submit"
-                            class="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-green-600 rounded-lg hover:bg-green-600 ease"
-                          >
-                            Log in
-                          </button>
-                        </>
-                      ) : (
-                        <>
-                          <button class="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-green-600 rounded-lg hover:bg-green-700 ease">
-                            <div class="w-8 h-8 border-4 border-dashed mx-auto rounded-full animate-spin dark:border-violet-400"></div>
-                          </button>
-                        </>
-                      )}
+                      <>
+                        <button
+                          type="submit"
+                          class="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-green-600 rounded-lg hover:bg-green-600 ease"
+                        >
+                          Log in
+                        </button>
+                      </>
                     </div>
                     <p class="w-full mt-4 text-sm text-center text-gray-500">
                       Don't have an account?{" "}

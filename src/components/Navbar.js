@@ -37,7 +37,7 @@ const Navbar = () => {
                 FAQs
               </NavLink>
               <NavLink
-                className="text-xl font-extrabold text-green-500"
+                className="text-xl active:bg-green-700 focus:outline-none focus:border-b-2 focus:border-green-300  font-extrabold text-green-500"
                 to={"/about"}
               >
                 About
@@ -46,7 +46,7 @@ const Navbar = () => {
             <div className="hidden sm:flex flex-row space-x-4">
               <button
                 onClick={Login}
-                className="rounded-md flex space-x-2 w-24 h-14 font-normal text-lg leading-3 text-green-500  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-green-600 hover:text-white duration-150 justify-center items-center"
+                className="rounded-md flex space-x-2 w-24 h-14 font-normal text-lg leading-3 text-green-500  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 focus:bg-green-600 hover:bg-green-600 hover:text-white duration-150 justify-center items-center"
               >
                 Log In
               </button>
