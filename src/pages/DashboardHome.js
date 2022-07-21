@@ -72,7 +72,7 @@ const DashboardHome = () => {
           <h1>Trust me you will soon start saving soon. You X fan</h1>
         </div>
       </div>
-      <div className="w-full lg:hidden flex bg-gray-100 h-screen">
+      <div className="w-full lg:hidden flex bg-gray-100 h-full pb-40">
         <div className="w-full">
           <div className="w-full h-20  flex flex-col justify-between">
             <div className="w-full border-green-300 border-b-2 flex items-center px-2 py-2 justify-between">
@@ -275,6 +275,7 @@ const DashboardHome = () => {
               </div>
             </div>
           </div>
+          {/* <br />
           <br />
           <br />
           <br />
@@ -284,8 +285,84 @@ const DashboardHome = () => {
           <br />
           <br />
           <br />
-          <br />
-          <Carousel />
+          <Carousel /> */}
+          {/* <div className=" container mt-10   w-full h-full">
+            <div className="  w-full  h-1/3 ">
+              <img
+                src="https://images.unsplash.com/photo-1609429019995-8c40f49535a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmlzYSUyMGNhcmR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                alt=""
+                className="absolute px-2 rounded-xl"
+              />
+              <div>
+                <h1 className="relative px-4 text-white  font-bold text-3xl top-32">
+                  Fast and reliable payment you can trust
+                </h1>
+              </div>
+            </div>
+            <div>
+              <p className="text-center mt-20 my-4 font-bold text-gray-700">
+                Download our mobile app(coming soon X fans)
+              </p>
+              <div className="flex justify-center">
+                <div className="flex space-x-5">
+                  <img
+                    className="w-38 h-10"
+                    src="https://www.piggyvest.com/images/iosbadge-101-image.png"
+                    alt="ios"
+                  />
+                  <img
+                    className="w-38 h-10"
+                    src="https://www.piggyvest.com/images/google-play-badge.png"
+                    alt="andriod"
+                  />
+                </div>
+              </div>
+              <div className="w-full flex flex-col justify-between bg-zinc-900 py-2 px-2 rounded-xl h-full">
+                <h1 className="text-white font-bold text-xl">Account Number</h1>
+
+                <div></div>
+              </div>
+            </div>
+          </div> */}
+          <div>
+            <p className="text-center mt-20 my-4 font-bold text-gray-700">
+              Download our mobile app(coming soon X fans)
+            </p>
+            <div className="flex justify-center">
+              <div className="flex space-x-5">
+                <img
+                  className="w-38 h-10"
+                  src="https://www.piggyvest.com/images/iosbadge-101-image.png"
+                  alt="ios"
+                />
+                <img
+                  className="w-38 h-10"
+                  src="https://www.piggyvest.com/images/google-play-badge.png"
+                  alt="andriod"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="w-full container bg-gray-100 h-60 px-2 mt-10">
+            <div className="w-full  bg-gray-900 rounded-2xl h-52 px-4 mt-10">
+              <h1 className="text-white font-bold text-lg pt-14">
+                Account Number
+              </h1>
+              <h1 className="text-white text-4xl font-bold pt-4">
+                {user.number}
+              </h1>
+            </div>
+          </div>
+          <div className="w-full container bg-gray-100 h-60 px-2 mt-10">
+            <div className="w-full  bg-gray-900 rounded-2xl h-52 px-4 mt-10">
+              <h1 className="text-white font-bold text-lg pt-14">
+                Account Number
+              </h1>
+              <h1 className="text-white text-4xl font-bold pt-4">
+                {user.name}
+              </h1>
+            </div>
+          </div>
         </div>
       </div>
     </div>

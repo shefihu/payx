@@ -25,7 +25,7 @@ function App() {
           "/verification",
           "/publisher",
         ].includes(location.pathname) && <Navbar />}
-        {["/admin", "/account", "/verification", "/publisher"].includes(
+        {["/admin", "/account", "", "/publisher"].includes(
           location.pathname
         ) && <Dashboard />}
         <Routes>

@@ -125,7 +125,7 @@ const FundWAlletModal = () => {
                               },
                             }
                           );
-                          console.log(data);
+                          window.location = data;
 
                           // localStorage.setItem("payxprofile", data.profile);
 
