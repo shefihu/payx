@@ -80,7 +80,7 @@ const TransferModal = () => {
     } catch (error) {
       setAccountName("");
       //nsole.log(error);
-      toast.error("This account number is not a Gbese account number");
+      toast.error("This account number is not a Payx account number");
       setLoading(false);
     }
     setLoading(false);
@@ -89,11 +89,11 @@ const TransferModal = () => {
     setLoading(true);
     try {
       if (accountName == "") {
-        toast.error("Please enter a valid Gbese account number");
+        toast.error("Please enter a valid Payx account number");
         return setLoading(false);
       }
       if (amount > balance) {
-        toast.error("I'm afraid you don't have the funds for that");
+        toast.error("Insufficient funds");
         return setLoading(false);
       }
       if (amount < 50) {
