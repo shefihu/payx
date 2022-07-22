@@ -7,8 +7,11 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Dashboard from "./pages/Dashboard";
 import Account from "./pages/Dashboard/Account";
+import Stash from "./pages/Dashboard/Stash";
+import Wallet from "./pages/Dashboard/Wallet";
 import DashboardHome from "./pages/DashboardHome";
 import FAQs from "./pages/FAQs";
+import History from "./pages/History";
 import Home from "./pages/Home";
 import Verification from "./pages/Verification";
 
@@ -24,10 +27,18 @@ function App() {
           "/account",
           "/verification",
           "/publisher",
+          "/wallet",
+          "/history",
+          "/stash",
         ].includes(location.pathname) && <Navbar />}
-        {["/admin", "/account", "", "/publisher"].includes(
-          location.pathname
-        ) && <Dashboard />}
+        {[
+          "/admin",
+          "/account",
+          "/wallet",
+          "/stash",
+          "/history",
+          "/publisher",
+        ].includes(location.pathname) && <Dashboard />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -39,6 +50,9 @@ function App() {
           <Route path="/admin" element={<DashboardHome />} />
           <Route path="/account" element={<Account />} />
           <Route path="/verification" element={<Verification />} />
+          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/history" element={<History />} />
+          <Route path="/stash" element={<Stash />} />
         </Routes>
       </div>
     </>

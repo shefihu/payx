@@ -80,129 +80,130 @@ const FundWAlletModal = () => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Payment successful
+                    <h3 class="mb-6 text-2xl font-medium text-center">
+                      Fund Your Wallet
+                    </h3>
                   </Dialog.Title>
-                  <div className="mt-2">
-                    <Formik
-                      initialValues={{
-                        amount: 0,
-                      }}
-                      validate={(values) => {
-                        const errors = {};
-                        if (!values.amount) {
-                          errors.amount = "Required";
-                        }
 
-                        return errors;
-                      }}
-                      onSubmit={async (values, { setSubmitting }) => {
-                        const amount = values.amount;
-
-                        setLoading(true);
-
-                        try {
-                          if (amount < 499) {
-                            toast.error(
-                              "You can only deposit more than #500 (Be free it's not real money)"
-                            );
-                            return setLoading(false);
+                  <div className="mt-4">
+                    {" "}
+                    <div className="mt-2">
+                      <Formik
+                        initialValues={{
+                          amount: 0,
+                        }}
+                        validate={(values) => {
+                          const errors = {};
+                          if (!values.amount) {
+                            errors.amount = "Required";
                           }
-                          if (amount > 1000000) {
-                            toast.error(
-                              " Whoa (Thsis is fake money, take it easy) maximale est #1000000"
-                            );
-                            return setLoading(false);
-                          }
-                          const { data } = await axios.post(
-                            "https://payx-server.herokuapp.com/payment/init",
-                            {
-                              amount: amount.toString(),
-                              message: "Fund Wallet",
-                            },
-                            {
-                              headers: {
-                                authorization: `Bearer ${user.token}`,
-                              },
+
+                          return errors;
+                        }}
+                        onSubmit={async (values, { setSubmitting }) => {
+                          const amount = values.amount;
+
+                          setLoading(true);
+
+                          try {
+                            if (amount < 499) {
+                              toast.error(
+                                "You can only deposit more than #500 (Be free it's not real money)"
+                              );
+                              return setLoading(false);
                             }
-                          );
-                          window.location = data;
+                            if (amount > 1000000) {
+                              toast.error(
+                                " Whoa (Thsis is fake money, take it easy) maximale est #1000000"
+                              );
+                              return setLoading(false);
+                            }
+                            const { data } = await axios.post(
+                              "https://payx-server.herokuapp.com/payment/init",
+                              {
+                                amount: amount.toString(),
+                                message: "Fund Wallet",
+                              },
+                              {
+                                headers: {
+                                  authorization: `Bearer ${user.token}`,
+                                },
+                              }
+                            );
+                            window.location = data;
 
-                          // localStorage.setItem("payxprofile", data.profile);
+                            // localStorage.setItem("payxprofile", data.profile);
 
-                          //nsole.log(payload);
-                        } catch (errors) {
-                          console.log(errors);
-                          toast.error(errors.response.data.message);
-                        }
-                        // router.push("/");
-                        setLoading(false);
-                      }}
-                    >
-                      {({
-                        values,
-                        errors,
-                        touched,
-                        handleChange,
-                        handleBlur,
-                        handleSubmit,
-                        isSubmitting,
-                      }) => (
-                        <form
-                          onSubmit={handleSubmit}
-                          class="w-full mt-16 md:mt-0 md:w-2/5"
-                        >
-                          {loading && (
-                            <>
-                              {" "}
-                              {/* <>
+                            //nsole.log(payload);
+                          } catch (errors) {
+                            console.log(errors);
+                            toast.error(errors.response.data.message);
+                          }
+                          // router.push("/");
+                          setLoading(false);
+                        }}
+                      >
+                        {({
+                          values,
+                          errors,
+                          touched,
+                          handleChange,
+                          handleBlur,
+                          handleSubmit,
+                          isSubmitting,
+                        }) => (
+                          <form
+                            onSubmit={handleSubmit}
+                            class="w-full mt-16 md:mt-0 md:w-2/5"
+                          >
+                            {loading && (
+                              <>
+                                {" "}
+                                {/* <>
                             <button class="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-green-600 rounded-lg hover:bg-green-700 ease">
                               <div class="w-8 h-8 border-4 border-dashed mx-auto rounded-full animate-spin dark:border-violet-400"></div>
                             </button>
                           </> */}
-                              <div className="w-full">
-                                {/* <BarLoader
+                                <div className="w-full">
+                                  {/* <BarLoader
                                   color={loaderColor}
                                   speedMultiplier={2.5}
                                   cssOverride={override}
                                 /> */}
-                              </div>
-                            </>
-                          )}
-                          <div>
-                            <h3 class="mb-6 text-2xl font-medium text-center">
-                              Fund Your Wallet
-                            </h3>
-                            <label htmlFor="amount">Amount</label>
-                            <input
-                              type="number"
-                              name="amount"
-                              value={values.email}
-                              onChange={handleChange}
-                              onBlur={handleBlur}
-                              class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
-                              placeholder="Amount"
-                            />
-                            <p className="text-red-500">{errors.amount}</p>
-                          </div>
-                          <button
-                            type="submit"
-                            className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
-                          >
-                            Fund Now
-                          </button>
-                        </form>
-                      )}
-                    </Formik>
+                                </div>
+                              </>
+                            )}
+                            <div className="w-full">
+                              <label htmlFor="amount">Amount</label>
+                              <input
+                                type="number"
+                                name="amount"
+                                value={values.amount}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
+                                placeholder="Amount"
+                              />
+                              <p className="text-red-500">{errors.amount}</p>
+                            </div>
+                            <button
+                              type="submit"
+                              className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+                            >
+                              Fund Now
+                            </button>
+                          </form>
+                        )}
+                      </Formik>
+                    </div>
                   </div>
-
-                  <div className="mt-4"></div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
           </div>
         </Dialog>
       </Transition>
-      <div className="  relative  ">
+      <div className="    ">
         <button type="button" onClick={openModal}>
           Fund Wallet
         </button>

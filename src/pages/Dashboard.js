@@ -6,6 +6,7 @@ import axios from "axios";
 import Modal from "../components/Modal";
 import { Menu } from "@headlessui/react";
 import { withAuth } from "./auth/withAuth";
+import TransferModal from "../components/Modals/TransferModal";
 const Dashboard = () => {
   //Large Screen
   const [open, setOpen] = useState(true);
@@ -35,7 +36,7 @@ const Dashboard = () => {
     },
     {
       title: "Save",
-      href: "/employee",
+      href: "/wallet",
       src: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -50,23 +51,23 @@ const Dashboard = () => {
         </svg>
       ),
     },
+    // {
+    //   title: "Stash",
+    //   src: (
+    //     <svg
+    //       xmlns="http://www.w3.org/2000/svg"
+    //       width="16"
+    //       height="16"
+    //       fill="currentColor"
+    //       class="bi bi-credit-card-fill"
+    //       viewBox="0 0 16 16"
+    //     >
+    //       <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0V4zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7H0zm3 2h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1z" />
+    //     </svg>
+    //   ),
+    // },
     {
-      title: "Stash",
-      src: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-credit-card-fill"
-          viewBox="0 0 16 16"
-        >
-          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0V4zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7H0zm3 2h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Transfer ",
+      title: <TransferModal />,
       src: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -85,6 +86,7 @@ const Dashboard = () => {
     },
     {
       title: "History",
+      href: "/history",
       src: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +156,7 @@ const Dashboard = () => {
     },
     {
       title: "Save",
-      href: "/employee",
+      href: "/wallet",
       src: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -177,6 +179,7 @@ const Dashboard = () => {
     },
     {
       title: "Stash",
+      href: "/stash",
       src: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -193,27 +196,28 @@ const Dashboard = () => {
         </svg>
       ),
     },
-    {
-      title: "Transfer ",
-      src: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="36"
-          height="36"
-          fill="currentColor"
-          class="bi bi-arrow-left-right"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            className="fill-current text-green-400 dark:text-green-400"
-            d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"
-          />
-        </svg>
-      ),
-    },
+    // {
+    //   title: "Transfer ",
+    //   src: (
+    //     <svg
+    //       xmlns="http://www.w3.org/2000/svg"
+    //       width="36"
+    //       height="36"
+    //       fill="currentColor"
+    //       class="bi bi-arrow-left-right"
+    //       viewBox="0 0 16 16"
+    //     >
+    //       <path
+    //         fill-rule="evenodd"
+    //         className="fill-current text-green-400 dark:text-green-400"
+    //         d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"
+    //       />
+    //     </svg>
+    //   ),
+    // },
     {
       title: "History",
+      href: "/history",
       src: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -290,7 +294,7 @@ const Dashboard = () => {
         <div
           className={` ${
             open && "w-72"
-          } bg-zinc-900 h-screen   pt-8 relative duration-300`}
+          } bg-zinc-900 h-[140vh]   pt-8 relative duration-300`}
         >
           <img
             src={Control}
@@ -357,7 +361,7 @@ const Dashboard = () => {
           </ul>
         </div>
       </div>
-      <div className="w-full lg:hidden flex flex-col items-end fixed justify-end h-full ">
+      <div className="w-full  lg:hidden flex flex-col items-end  justify-end h-full fixed ">
         <div className="w-full bg-zinc-900 flex items-center justify-center h-20">
           <ul className=" w-full bg-zinc-900 pl-4 flex justify-between">
             {SmallMenu.map((menu) => {

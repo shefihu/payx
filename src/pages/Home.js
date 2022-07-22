@@ -7,10 +7,10 @@ import Stats from "../components/Stats";
 
 const Home = () => {
   return (
-    <div>
+    <div className="h-screen lg:h-[140vh] bg-zinc-900">
       <Hero />
       <Stats />
-      <Features />
+      {/* <Features /> */}
       <Hero2 />
     </div>
   );
