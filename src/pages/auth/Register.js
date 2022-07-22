@@ -20,10 +20,10 @@ const Register = () => {
                   <div class="lg:flex hidden flex-col items-start space-y-8 tracking-tight lg:max-w-3xl">
                     <div class="relative">
                       <p class="mb-2 font-medium text-gray-700 uppercase">
-                        Work smarter
+                        Providing solutions
                       </p>
                       <h2 class="text-5xl font-bold text-gray-900 xl:text-6xl">
-                        Features to help you work smarter
+                        Building Financial solutions
                       </h2>
                     </div>
                     <p class="text-2xl text-gray-700">
@@ -140,6 +140,7 @@ const Register = () => {
                               id="firstName"
                               onChange={handleChange}
                               onBlur={handleBlur}
+                              required
                               value={values.firstName}
                             />
                           </div>
@@ -154,6 +155,7 @@ const Register = () => {
                               name="lastName"
                               id="lastName"
                               onChange={handleChange}
+                              required
                               onBlur={handleBlur}
                               value={values.lastName}
                             />
@@ -167,6 +169,7 @@ const Register = () => {
                             placeholder="Enter Your Email Address"
                             name="email"
                             id="email"
+                            required
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.email}
@@ -182,6 +185,7 @@ const Register = () => {
                             placeholder="Enter Your Phone Number"
                             name="phone"
                             id="phone"
+                            required
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.phone}
@@ -197,6 +201,7 @@ const Register = () => {
                             placeholder="Password"
                             name="password"
                             id="password"
+                            required
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.password}
@@ -219,13 +224,6 @@ const Register = () => {
                               </button>
                             </>
                           )}
-
-                          <a
-                            href="#_"
-                            class="inline-block w-full px-5 py-4 mt-3 text-lg font-bold text-center text-gray-900 transition duration-200 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 ease"
-                          >
-                            Sign up with Google
-                          </a>
                         </div>
                       </div>
                     </div>

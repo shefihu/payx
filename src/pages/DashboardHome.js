@@ -102,9 +102,9 @@ const DashboardHome = () => {
                       </div>
                     </li>
                     <li className="flex w-full justify-between relative text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2">
-                      {Menus.map((menu) => {
+                      {/* {Menus.map((menu) => {
                         return <a href={menu.gap}>{menu.title}</a>;
-                      })}
+                      })} */}
                     </li>
                   </ul>
                 ) : (
@@ -261,7 +261,7 @@ const DashboardHome = () => {
                 </div>
               </div>
               <div>
-                <button className="px-6 py-3 bg-green-500 text-white font-bold rounded-lg">
+                <button className="px-6 py-3  bg-green-500 text-white font-bold rounded-lg">
                   <FundWAlletModal />
                 </button>
               </div>

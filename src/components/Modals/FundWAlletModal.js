@@ -204,7 +204,14 @@ const FundWAlletModal = () => {
         </Dialog>
       </Transition>
       <div className="    ">
-        <button type="button" onClick={openModal}>
+        <button className="lg:flex hidden " type="button" onClick={openModal}>
+          Fund Wallet
+        </button>
+        <button
+          className="lg:hidden relative "
+          type="button"
+          onClick={openModal}
+        >
           Fund Wallet
         </button>
       </div>

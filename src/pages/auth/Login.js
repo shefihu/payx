@@ -23,11 +23,11 @@ const Login = () => {
         <div class="max-w-5xl mx-auto">
           <div class="flex flex-col items-center md:flex-row">
             <div class="w-full md:flex lg:flex flex-col hidden space-y-5 md:w-3/5 md:pr-16">
-              <p class="font-medium text-blue-500 uppercase">
-                Building Businesses
+              <p class="font-medium text-green-500 uppercase">
+                Building Financial
               </p>
               <h2 class="text-2xl font-extrabold leading-none text-black sm:text-3xl md:text-5xl">
-                Changing The Way People Do Business.
+                Building financial solutions
               </h2>
               <p class="text-xl text-gray-600 md:pr-16">
                 Learn how to engage with your visitors and teach them about your
@@ -129,12 +129,14 @@ const Login = () => {
                       value={values.email}
                       onChange={handleChange}
                       onBlur={handleBlur}
+                      required
                       class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
                       placeholder="Email address"
                     />
                     <input
                       type="password"
                       name="password"
+                      required
                       value={values.password}
                       onChange={handleChange}
                       onBlur={handleBlur}

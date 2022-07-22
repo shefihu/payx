@@ -310,7 +310,7 @@ const Wallet = () => {
           </div>
         </div>
       </div>
-      <div className="lg:hidden pb-40 flex w-full">
+      <div className="lg:hidden pb-20 flex w-full">
         <div className="w-full mx-auto container">
           <div className="w-full border-green-300 border-b-2 flex items-center px-2 py-2 justify-between">
             <h1 className="font-bold text-xl ">Account Overview</h1>
@@ -345,9 +345,9 @@ const Wallet = () => {
                       </div>
                     </li>
                     <li className="flex w-full justify-between relative text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2">
-                      {Menus.map((menu) => {
+                      {/* {Menus.map((menu) => {
                         return <a href={menu.gap}>{menu.title}</a>;
-                      })}
+                      })} */}
                     </li>
                   </ul>
                 ) : (
@@ -398,9 +398,9 @@ const Wallet = () => {
               </div>
             </div>
           </div>
-          <div className="w-full h-52 rounded-2xl mt-10 bg-gray-900">
+          <div className="w-full h-40 rounded-2xl mt-4 bg-gray-900">
             <div className="w-full flex flex-col h-52 items-center justify-center">
-              <h1 className="text-3xl text-white font-bold">Your Balance is</h1>
+              <h1 className="text-2xl text-white font-bold">Your Balance is</h1>
               <div className="flex  justify-between items-center w-60 ">
                 {!refresh ? (
                   <>
