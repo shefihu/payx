@@ -66,24 +66,24 @@ const Dashboard = () => {
     //     </svg>
     //   ),
     // },
-    {
-      title: <TransferModal />,
-      src: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-arrow-left-right"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"
-          />
-        </svg>
-      ),
-    },
+    // {
+    //   title: <TransferModal />,
+    //   src: (
+    //     <svg
+    //       xmlns="http://www.w3.org/2000/svg"
+    //       width="16"
+    //       height="16"
+    //       fill="currentColor"
+    //       class="bi bi-arrow-left-right"
+    //       viewBox="0 0 16 16"
+    //     >
+    //       <path
+    //         fill-rule="evenodd"
+    //         d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"
+    //       />
+    //     </svg>
+    //   ),
+    // },
     {
       title: "History",
       href: "/history",
@@ -293,7 +293,7 @@ const Dashboard = () => {
       <div className="lg:flex hidden  absolute">
         <div
           className={` ${
-            open && "w-72"
+            open ? "w-72" : ""
           } bg-zinc-900 h-[140vh]   pt-8 relative duration-300`}
         >
           <img
@@ -323,7 +323,15 @@ const Dashboard = () => {
               >
                 Yo,
               </h1>
-              <h1 className="font-bold text-green-600 text-2xl">{user.fn}</h1>
+              <h1
+                className={`${
+                  open
+                    ? "font-bold text-green-600 text-2xl"
+                    : "font-bold text-green-600 pr-6 text-xl"
+                }`}
+              >
+                {user.fn}
+              </h1>
             </div>
           </div>
           <ul className="pt-6  justify-center flex flex-col items-center w-full">

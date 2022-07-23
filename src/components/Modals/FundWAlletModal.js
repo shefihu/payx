@@ -2,7 +2,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BarLoader } from "react-spinners";
+import { BarLoader, ClipLoader, PuffLoader } from "react-spinners";
 import { toast, ToastContainer } from "react-toastify";
 import Cookies from "js-cookie";
 import { Formik } from "formik";
@@ -114,7 +114,7 @@ const FundWAlletModal = () => {
                             }
                             if (amount > 1000000) {
                               toast.error(
-                                " Whoa (Thsis is fake money, take it easy) maximale est #1000000"
+                                " Whoa (This is fake money, take it easy) maximale est #1000000"
                               );
                               return setLoading(false);
                             }
@@ -136,10 +136,9 @@ const FundWAlletModal = () => {
 
                             //nsole.log(payload);
                           } catch (errors) {
-                            console.log(errors);
                             toast.error(errors.response.data.message);
                           }
-                          // router.push("/");
+
                           setLoading(false);
                         }}
                       >
@@ -186,12 +185,27 @@ const FundWAlletModal = () => {
                               />
                               <p className="text-red-500">{errors.amount}</p>
                             </div>
-                            <button
-                              type="submit"
-                              className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
-                            >
-                              Fund Now
-                            </button>
+                            {!loading ? (
+                              <>
+                                {" "}
+                                <button
+                                  type="submit"
+                                  className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+                                >
+                                  Fund Now
+                                </button>
+                              </>
+                            ) : (
+                              <>
+                                {" "}
+                                <button
+                                  type="submit"
+                                  className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+                                >
+                                  <ClipLoader color="green" size={15} />
+                                </button>
+                              </>
+                            )}
                           </form>
                         )}
                       </Formik>

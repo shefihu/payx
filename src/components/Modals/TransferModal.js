@@ -235,28 +235,36 @@ const TransferModal = () => {
                           class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
                         />
                       </div>
-                      {!loading ? (
-                        <div>
-                          {" "}
-                          <button
-                            onClick={transferHandler}
-                            type="submit"
-                            className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
-                          >
-                            Send
-                          </button>
-                        </div>
-                      ) : (
-                        <div>
-                          <button
-                            disabled
-                            type="submit"
-                            className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
-                          >
-                            <ClipLoader color="green" size={15} />
-                          </button>
-                        </div>
-                      )}
+                      <div className="w-40 flex justify-between">
+                        {!loading ? (
+                          <div>
+                            {" "}
+                            <button
+                              onClick={transferHandler}
+                              type="submit"
+                              className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+                            >
+                              Send
+                            </button>
+                          </div>
+                        ) : (
+                          <div>
+                            <button
+                              disabled
+                              type="submit"
+                              className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+                            >
+                              <ClipLoader color="green" size={15} />
+                            </button>
+                          </div>
+                        )}
+                        <button
+                          className="bg-red-500 text-white text-xs rounded-lg py-2 px-3 font-bold lg:hidden "
+                          onClick={closeModal}
+                        >
+                          Cancel
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </Dialog.Panel>

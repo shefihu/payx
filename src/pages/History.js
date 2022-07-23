@@ -55,9 +55,9 @@ const History = () => {
         </div>
         <div className="bg-white shadow px-4 md:px-10 pt-4 md:pt-7 pb-5   overflow-y-auto">
           <table className="w-full overflow-x-scroll whitespace-nowrap">
-            {transaction.length === null && (
+            {transaction.length === 0 && (
               <>
-                <h1>No records found</h1>
+                <h1 className="w-full text-center">No records found yet</h1>
               </>
             )}
             {loading ? (
