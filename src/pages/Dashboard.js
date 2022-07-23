@@ -9,7 +9,7 @@ import { withAuth } from "./auth/withAuth";
 import TransferModal from "../components/Modals/TransferModal";
 const Dashboard = () => {
   //Large Screen
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const Menus = [
     {
       title: "Dashboard",
