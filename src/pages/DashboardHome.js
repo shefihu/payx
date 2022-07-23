@@ -592,7 +592,7 @@ const DashboardHome = () => {
           <div className="w-full container bg-gray-100 h-60 px-2 mt-10">
             <div className="w-full  bg-gray-900 rounded-2xl h-52 px-4 mt-10">
               <h1 className="text-white font-bold text-lg pt-14">
-                Account Number
+                Account Name
               </h1>
               <h1 className="text-white text-4xl font-bold pt-4">
                 {user.name}
